@@ -1,0 +1,29 @@
+<!DOCTYPE html
+        PUBLIC "-//W3С//DTD XHTML 1.0 Transitional//EN"
+        "DTD/xhtml1-transitional.dtd">
+<html  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http:/www.w3.org/1999/xhtml "/>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Products</title>
+</head>
+
+<body>
+<form th:method="GET" th:action="@{/products}" th:object="${product}">
+        <label for="name">Product search: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <input type="submit" value="Search"/>
+    </form>
+
+    <div th:each="product : ${products}">
+        <a th:href="@{/products/{id}(id=${product.getId()})}" th:text="${product.getName()}">user</a>
+    </div>
+    <br>
+    <hr/>
+    <a th:href = "@{/products/create}">Create product</a>
+
+</body>
+</html>
+</body>
+</html>
